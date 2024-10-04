@@ -2,7 +2,7 @@ import { Button, Card, CardBody, CardHeader } from "@chakra-ui/react";
 import { useQuery } from "@tanstack/react-query";
 
 export type Report = {
-    _id: {
+    id: {
         timestamp: 1726725017,
         machine: 2915263,
         pid: 32544,
@@ -35,13 +35,13 @@ const ReportList = () => {
         {reports?.map((report) => (
             
         
-        <Card key={report._id.timestamp}>
+        <Card key={report.id.pid}>
             <CardHeader borderRadius={10} border="HighlightText" color="HighlightText">
                 {report.title}
             </CardHeader>
             <CardBody>
-                {report.description}
-                <Button>Report</Button>
+                <p>{report.description}</p>
+                {report.reportedTime}
             </CardBody>
         </Card>
         ))}
