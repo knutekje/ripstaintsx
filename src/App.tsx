@@ -1,21 +1,26 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import { Heading, Stack } from '@chakra-ui/react'
-import ReportList from './Components/ReportList'
-import Navbar from './Components/NavBar'
-import ReportForm from './Components/ReportForm'
+
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import MainPage from './Pages/MainPage'
+import VerifyPage from './Verify/VerifyPage'
+import ReportPage from './Report/ReportPage'
 
 function App() {
 
   return (
     <>
-    <Stack h="100vh" justifyContent="center" alignItems="center">
-        <div>
-          <Navbar />
-          <ReportForm/>
-    </div>
-    <ReportList />
-    </Stack>
+      
+      <Router>
+      <Routes>
+        <Route path="/" element={<MainPage />}>
+            <Route index element={<VerifyPage />} />
+            <Route path="ReportPage" element={<ReportPage />} />
+            <Route path="VerifyPage" element={<VerifyPage />} />
+            
+     
+        </Route>
+      </Routes>
+    </Router>
+     
     </>
   
   )

@@ -1,9 +1,10 @@
-import { Button, Flex, Input, Spinner } from "@chakra-ui/react";
+import { Button, Editable, EditablePreview, EditableTextarea, Flex, FormLabel, Grid, Input, Spinner, Stack } from "@chakra-ui/react";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useState } from "react";
 import { IoMdAdd } from "react-icons/io";
 
 const ReportForm = () => {
+    
     const [newReport, setNewReport] = useState("");
 
     const queryClient = useQueryClient();
@@ -44,7 +45,14 @@ const ReportForm = () => {
 
     return (
         <form onSubmit={createReport}>
-            <Flex gap={2}>
+            <Stack gap={2} width={"92vh"} height={"60vh"}>
+                <FormLabel>First name</FormLabel>
+                <Input  width='auto' />
+                <FormLabel>First name</FormLabel>
+                <Input  width='auto' />
+                <FormLabel>First name</FormLabel>
+                <Input  width='auto' />
+                <FormLabel>First name</FormLabel>
 				<Input
 					type='text'
 					value={newReport}
@@ -60,7 +68,7 @@ const ReportForm = () => {
 				>
 					{isCreating ? <Spinner size={"xs"} /> : <IoMdAdd size={30} />}
 				</Button>
-			</Flex>
+			</Stack>
         </form>
     )
 }
