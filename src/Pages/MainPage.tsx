@@ -8,7 +8,7 @@ function MainPage() {
              <Flex as="header" position="fixed"  w="100%">
                 <NavBar />
             </Flex>
-            <Stack h="100vh" justifyContent="center" alignItems="center">    
+            <Stack h="100vh" justifyContent="center" alignItems="center"    >    
                 <Outlet />
             </Stack> 
             </>

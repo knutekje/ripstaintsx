@@ -1,28 +1,28 @@
-import { Button, Flex, Input, NumberDecrementStepper, NumberIncrementStepper, NumberInput, NumberInputField, NumberInputStepper, VStack } from "@chakra-ui/react"
+import { Button, Flex, Input, NumberDecrementStepper, NumberIncrementStepper, NumberInput, NumberInputField, NumberInputStepper } from "@chakra-ui/react"
 import { useForm } from '@tanstack/react-form'
-import { QueryClient, useQuery, useQueryClient } from "@tanstack/react-query"
-import { useState } from "react"
+//import { QueryClient, useQuery, useQueryClient } from "@tanstack/react-query"
+//import { useState } from "react"
 
-const queryClient = new QueryClient()
+//const queryClient = new QueryClient()
 
-type ReportIFace = {
+/* type ReportIFace = {
     title: string,
     description: string,
     status: boolean,
     quantity: string,
     reportedTime: string,
-}
+} */
 
 export const ReportForm = () => {
    
 
-    const [newReport, setNewReport] = useState<ReportIFace>({
+ /*    const [newReport, setNewReport] = useState<ReportIFace>({
         title: '',
         description: '',
         status: false,
         quantity: "0",
         reportedTime: "2024-10-09T07:28:57.534Z",
-    });
+    }); */
     
     const form = useForm({
         defaultValues: {
@@ -37,7 +37,7 @@ export const ReportForm = () => {
             
             
             console.log(value)
-            const res = await fetch("http://localhost:5172/Report", {
+            await fetch("http://localhost:5172/Report", {
                 method: "POST",
                 headers: {
                     "Content-type": "application/json",

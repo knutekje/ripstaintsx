@@ -1,5 +1,5 @@
-import { Box, Flex, Button, useColorModeValue, useColorMode, Text, Container, Spacer, border, Heading } from "@chakra-ui/react";
-import { FaBiohazard, FaFrog } from "react-icons/fa6";
+import { Box, Flex, Button,  useColorMode,  Container,   Heading } from "@chakra-ui/react";
+import {  FaFrog } from "react-icons/fa6";
 import { IoMoon } from "react-icons/io5";
 import { LuSun } from "react-icons/lu";
 import { Link } from "react-router-dom";
@@ -15,17 +15,18 @@ export default function Navbar() {
 			<Box  px={4} my={4} borderRadius={"5"} >
 			
 
-				<Flex  alignItems={"center"} justifyContent={"space-between"}  overflowY={"auto"}>
+				<Flex  alignItems={"center"} justifyContent={"space-between"}  >
 					{/* LEFT SIDE */}
 					<Flex
 						justifyContent={"center"}
 						alignItems={"center"}
 						gap={2}
-						/* display={{ base: "none", sm: "flex" }} */
 					>
 						<Link to="VerifyPage">Verify Reports</Link>
 			
 						<Link to="ReportPage">Post Report</Link>
+						<Link to="StatsPage">Statistics</Link>
+
 
 						
 						
@@ -38,7 +39,7 @@ export default function Navbar() {
 							<FaFrog transform={""} color={"green"} size="large" />
 						{/* Toggle Color Mode */}
 						<Button onClick={toggleColorMode}>
-							{colorMode === "light" ? <IoMoon /> : <LuSun size={20} />}
+							{colorMode === "light" ? <IoMoon /> : <LuSun size={14} />}
 						</Button>
 					</Flex>
 				</Flex>

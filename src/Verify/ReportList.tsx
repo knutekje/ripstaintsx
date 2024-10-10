@@ -1,9 +1,7 @@
-import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box, Button, Card, CardBody, CardHeader, Flex, Heading, Spacer, Spinner, useColorModeValue } from "@chakra-ui/react";
+import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box,  Flex, Heading, Spacer, Spinner, useColorModeValue } from "@chakra-ui/react";
 import { useQuery } from "@tanstack/react-query";
-import { BiFont } from "react-icons/bi";
-import { FaCheck, FaCheckCircle } from "react-icons/fa";
+import {  FaCheckCircle } from "react-icons/fa";
 import { FaCircleXmark } from "react-icons/fa6";
-import { LuHeading1 } from "react-icons/lu";
 
 export type Report = {
     id: {
@@ -35,9 +33,12 @@ const ReportList = () => {
         }
     })
     return (
-        <>  
+        
+      
+        <> 
+            {isLoading ? <Spinner/> : <Box/>}
             <Heading>Report</Heading>
-            <Accordion allowToggle={true} bg={useColorModeValue("gray.400", "gray.700")} px={4} my={4} borderRadius={"5"}   w={[300, 400, 500]} height={"60vh"}>
+            <Accordion allowToggle={true} bg={useColorModeValue("gray.400", "gray.700")} px={4} my={4} borderRadius={"5"}   w={[300, 400, 500]} overflowY={"auto"} >
                
                 {reports?.map((report) => (
                     
@@ -70,9 +71,10 @@ const ReportList = () => {
                         </AccordionPanel>
                     </AccordionItem>))}
                 </Accordion>
-
+                </>
+            
    
-        </>
+        
     )
 }
 export default ReportList
