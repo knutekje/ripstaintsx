@@ -12,16 +12,16 @@ export default function Navbar() {
 		
 		<Container w={[300, 400, 500]} position={"relative"}>
 			
-			<Box bg={useColorModeValue("gray.400", "gray.700")} px={4} my={4} borderRadius={"5"} flexWrap={"wrap"}>
+			<Box  px={4} my={4} borderRadius={"5"} >
 			
 
-				<Flex h={16} alignItems={"center"} justifyContent={"space-between"} flexWrap={"wrap"}>
+				<Flex  alignItems={"center"} justifyContent={"space-between"}  overflowY={"auto"}>
 					{/* LEFT SIDE */}
 					<Flex
 						justifyContent={"center"}
 						alignItems={"center"}
-						gap={3}
-						display={{ base: "none", sm: "flex" }}
+						gap={2}
+						/* display={{ base: "none", sm: "flex" }} */
 					>
 						<Link to="VerifyPage">Verify Reports</Link>
 			
@@ -31,8 +31,8 @@ export default function Navbar() {
 						
 					</Flex>
 
-					{/* RIGHT SIDE */}
-					<Flex alignItems={"center"} gap={3}>
+					
+					<Flex alignItems={"center"} gap={1}>
 						<Heading fontSize={"lg"} fontWeight={700}>
 							Rip Stain						</Heading>
 							<FaFrog transform={""} color={"green"} size="large" />

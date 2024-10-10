@@ -1,4 +1,4 @@
-import { Button, Input, NumberDecrementStepper, NumberIncrementStepper, NumberInput, NumberInputField, NumberInputStepper, VStack } from "@chakra-ui/react"
+import { Button, Flex, Input, NumberDecrementStepper, NumberIncrementStepper, NumberInput, NumberInputField, NumberInputStepper, VStack } from "@chakra-ui/react"
 import { useForm } from '@tanstack/react-form'
 import { QueryClient, useQuery, useQueryClient } from "@tanstack/react-query"
 import { useState } from "react"
@@ -49,7 +49,7 @@ export const ReportForm = () => {
             });
         }
     })
-    return (<VStack  w={[300, 400, 500]}>
+    return (<Flex  w={[300, 400, 500]} flexWrap={"wrap"} flexShrink={5}>
 
             <form
                 onSubmit={(e) => {
@@ -112,6 +112,6 @@ export const ReportForm = () => {
                 
         <Button type="submit"> submit</Button>
         </form>
-        </VStack>
+        </Flex>
     )
 }
