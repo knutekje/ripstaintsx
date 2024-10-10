@@ -1,17 +1,21 @@
 import { Outlet } from "react-router-dom";
 import NavBar from "../Components/NavBar";
-import { Flex, Stack } from "@chakra-ui/react";
+import {
+    Container,
+    Flex,
+    
+} from "@chakra-ui/react";
 
 function MainPage() {
     return (
-        <>
-             <Flex as="header" position="fixed"  w="100%">
+            <Container w={[300, 400, 500]} >
+             <Flex as="header"   w="100%">
                 <NavBar />
             </Flex>
-            <Stack h="100vh" justifyContent="center" alignItems="center"    >    
+            <Flex  h="80vh" w="" alignItems="center" flexDirection={"column"} position={"inherit" }>    
                 <Outlet />
-            </Stack> 
-            </>
+            </Flex> 
+            </Container>
     )
 }
 

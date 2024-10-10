@@ -17,9 +17,6 @@ function App() {
             <Route path="ReportPage" element={<ReportPage />} />
             <Route path="VerifyPage" element={<VerifyPage />} />
             <Route path="StatsPage" element={<StatsPage />} />
-
-            
-     
         </Route>
       </Routes>
     </Router>

@@ -1,11 +1,31 @@
-import { Stat, StatHelpText, StatLabel, StatNumber } from "@chakra-ui/react"
-
+import { Button, Text, Flex, HStack, Stat, StatHelpText, StatLabel, StatNumber, VStack } from "@chakra-ui/react"
+import { CalendarViewType, useCalendar } from "@h6s/calendar";
+import { format } from "date-fns";
 export const StatDash = () => {
+    const {  month, year, navigation } = useCalendar({
+        defaultViewType: CalendarViewType.Week
+      });
+
     return (
-        <Stat>
-            <StatLabel>Collected Fees</StatLabel>
-            <StatNumber>£0.00</StatNumber>
-            <StatHelpText>Feb 12 - Feb 28</StatHelpText>
-        </Stat>
+        <VStack>
+            <Flex>
+            <HStack justify="space-between">
+                <HStack>
+                    <Button onClick={navigation.toPrev}>&lt;</Button>
+                    <Text>{format(new Date(year, month), "MMMMMMM yyyy")}</Text>
+                    <Button onClick={navigation.toNext}>&gt;</Button>
+                </HStack>
+                
+            </HStack>
+            </Flex>
+            <Flex>
+                <Stat>
+                    <StatLabel>Collected Fees</StatLabel>
+                    <StatNumber>£0.00</StatNumber>
+                    <StatHelpText>Feb 12 - Feb 28</StatHelpText>
+                </Stat>
+            </Flex>
+       
+        </VStack>
     )
 }

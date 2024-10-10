@@ -5,11 +5,11 @@ import { FaCircleXmark } from "react-icons/fa6";
 
 export type Report = {
     id: {
-        timestamp: 1726725017,
-        machine: 2915263,
-        pid: 32544,
-        increment: 4580559,
-        creationTime: "2024-09-19T05:50:17Z"
+        timestamp: 0,
+        machine: 0,
+        pid: 0,
+        increment: 0,
+        creationTime: ""
       },
       title: string,
       description: string,
@@ -36,9 +36,12 @@ const ReportList = () => {
         
       
         <> 
+            <Flex>
             {isLoading ? <Spinner/> : <Box/>}
-            <Heading>Report</Heading>
-            <Accordion allowToggle={true} bg={useColorModeValue("gray.400", "gray.700")} px={4} my={4} borderRadius={"5"}   w={[300, 400, 500]} overflowY={"auto"} >
+                <Heading>Report</Heading>
+            </Flex>
+            <Flex>
+            <Accordion allowToggle={true} bg={useColorModeValue("gray.400", "gray.700")} position={"relative"} borderRadius={"1rem"}  maxH={"60vh"} w={[300, 400, 500]} overflowY={"auto"} >
                
                 {reports?.map((report) => (
                     
@@ -71,6 +74,7 @@ const ReportList = () => {
                         </AccordionPanel>
                     </AccordionItem>))}
                 </Accordion>
+                </Flex>
                 </>
             
    
