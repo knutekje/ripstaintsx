@@ -101,7 +101,8 @@ export default function CarouselReport() {
             position="relative"
             backgroundPosition="center"
             backgroundRepeat="no-repeat"
-            backgroundSize="cover"
+                  backgroundSize="cover"
+                  backgroundColor={"AppWorkspace"}
                      /*  backgroundImage={`url(${card.desc})`} */
                           
                       

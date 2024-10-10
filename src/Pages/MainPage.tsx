@@ -8,11 +8,12 @@ import {
 
 function MainPage() {
     return (
-            <Container w={[300, 400, 500]} >
+       
+            <Container w={[300, 400, 500] } >
              <Flex as="header"   w="100%">
                 <NavBar />
             </Flex>
-            <Flex  h="80vh" w="" alignItems="center" flexDirection={"column"} position={"inherit" }>    
+            <Flex  h="80vh" w="" alignItems="center" flexDirection={"column"} position={"inherit" } marginTop="2">    
                 <Outlet />
             </Flex> 
             </Container>

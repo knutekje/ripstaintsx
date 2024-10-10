@@ -12,14 +12,16 @@ export default function Navbar() {
 		
 		<Container w={[300, 400, 500]} >
 			
-			<Box  px={4} my={4} borderRadius={"5"} >
+			<Box   borderRadius={"5"} >
 			
 
 				<Flex alignItems={"flex-start"} justifyContent={"space-between"} flexDirection={"column"}  >
 					<Flex alignItems={"flex-start"} gap={2} background={"grey.600"}>
 						<Heading fontSize={"lg"} fontWeight={700}>
 							Rip Stain						</Heading>
-							<FaFrog transform={""} color={"green"} size="large" />
+						
+								<FaFrog transform={""} color={"green"} size="large" />
+						
 						{/* Toggle Color Mode */}
 						<Button onClick={toggleColorMode}>
 							{colorMode === "light" ? <IoMoon /> : <LuSun size={14} />}

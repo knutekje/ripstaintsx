@@ -1,4 +1,4 @@
-import { Button, Flex, Input, NumberDecrementStepper, NumberIncrementStepper, NumberInput, NumberInputField, NumberInputStepper } from "@chakra-ui/react"
+import { Button, Flex,  Input, NumberDecrementStepper, NumberIncrementStepper, NumberInput, NumberInputField, NumberInputStepper } from "@chakra-ui/react"
 import { useForm } from '@tanstack/react-form'
 //import { QueryClient, useQuery, useQueryClient } from "@tanstack/react-query"
 //import { useState } from "react"
@@ -49,7 +49,16 @@ export const ReportForm = () => {
             });
         }
     })
-    return (<Flex  w={[300, 400, 500]} flexWrap={"wrap"} flexShrink={5}>
+    return (
+        <>
+        <Flex w={[300, 400, 500]}
+            flexWrap={"wrap"}
+            flexShrink={5}
+            borderColor={"white"}
+                border="1px"
+                backgroundImage={"https://images.pexels.com/photos/28818953/pexels-photo-28818953/free-photo-of-charming-cafe-exterior-with-vintage-signage.jpeg"}
+            borderRadius="lg" m={{ base: 5, md: 16, lg: 10 }} p={{ base: 5, lg: 16 }}
+            >
 
             <form
                 onSubmit={(e) => {
@@ -112,6 +121,7 @@ export const ReportForm = () => {
                 
         <Button type="submit"> submit</Button>
         </form>
-        </Flex>
+            </Flex>
+            </>
     )
 }
