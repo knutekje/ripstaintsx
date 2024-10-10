@@ -41,18 +41,25 @@ const ReportList = () => {
                 <Heading>Report</Heading>
             </Flex>
             <Flex>
-            <Accordion allowToggle={true} bg={useColorModeValue("gray.400", "gray.700")} position={"relative"} borderRadius={"1rem"}  maxH={"60vh"} w={[300, 400, 500]} overflowY={"auto"} >
+                <Accordion
+                    allowToggle={true}
+                    bg={useColorModeValue("gray.400", "gray.700")}
+                    position={"relative"} borderRadius={"1rem"}
+                    maxH={"60vh"} w={[300, 400, 500]}
+                    overflowY={"auto"} >
                
                 {reports?.map((report) => (
                     
                     <AccordionItem  key={report.id.pid}>
                         <h2>
-                            <AccordionButton _expanded={{ bg: 'tomato', color: 'white' }}>
+                            <AccordionButton
+                                _expanded={{ bg: 'tomato', color: 'white' }}>
                                 <Box as='span' flex='1' textAlign='left'>
-                                {report.title}  
+                                    {report.title}  
                                 </Box>
                                 <Box as='span' flex='1' textAlign='right'>
-                                {report.reportedTime.substring(0, 10)}
+                                    
+                                    {report.reportedTime.substring(0, 10)}
                                 </Box>
                                 <AccordionIcon />
                             </AccordionButton>

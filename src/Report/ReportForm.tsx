@@ -1,28 +1,14 @@
 import { Button, Flex,  Input, NumberDecrementStepper, NumberIncrementStepper, NumberInput, NumberInputField, NumberInputStepper } from "@chakra-ui/react"
 import { useForm } from '@tanstack/react-form'
+import { ItemDropDown } from "./ItemDropDown"
 //import { QueryClient, useQuery, useQueryClient } from "@tanstack/react-query"
 //import { useState } from "react"
 
-//const queryClient = new QueryClient()
-
-/* type ReportIFace = {
-    title: string,
-    description: string,
-    status: boolean,
-    quantity: string,
-    reportedTime: string,
-} */
 
 export const ReportForm = () => {
    
 
- /*    const [newReport, setNewReport] = useState<ReportIFace>({
-        title: '',
-        description: '',
-        status: false,
-        quantity: "0",
-        reportedTime: "2024-10-09T07:28:57.534Z",
-    }); */
+
     
     const form = useForm({
         defaultValues: {
@@ -30,6 +16,7 @@ export const ReportForm = () => {
             description: '',
             status: false,
             quantity: '21',
+            foodItem: '',
             reportedTime: "2024-10-09T07:28:57.534Z",
 
         },
@@ -56,7 +43,6 @@ export const ReportForm = () => {
             flexShrink={5}
             borderColor={"white"}
                 border="1px"
-                backgroundImage={"https://images.pexels.com/photos/28818953/pexels-photo-28818953/free-photo-of-charming-cafe-exterior-with-vintage-signage.jpeg"}
             borderRadius="lg" m={{ base: 5, md: 16, lg: 10 }} p={{ base: 5, lg: 16 }}
             >
 
@@ -83,14 +69,14 @@ export const ReportForm = () => {
             )}
                 />
                   <form.Field
-            name="description"
-            children={(field) => (
-                <>
+                        name="description"
+                        children={(field) => (
+                    <>
                     <label htmlFor="description">Description</label>
-                <Input
-                value={field.state.value}
-                onBlur={field.handleBlur}
-                onChange={(e) => field.handleChange(e.target.value)}
+                        <Input
+                            value={field.state.value}
+                            onBlur={field.handleBlur}
+                            onChange={(e) => field.handleChange(e.target.value)}
                     />
              
             </>
@@ -117,11 +103,17 @@ export const ReportForm = () => {
             </>
             
             )}
-                />
+                    />
+           
+                    
+                   
                 
-        <Button type="submit"> submit</Button>
-        </form>
+                    <Button type="submit"> submit</Button>
+                   
+                </form>
+                <ItemDropDown/>
             </Flex>
+
             </>
     )
 }
