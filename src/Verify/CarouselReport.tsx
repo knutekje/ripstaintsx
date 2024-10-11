@@ -6,10 +6,11 @@ import {
   IconButton,
   useBreakpointValue,
   Stack,
-  Heading,
+ 
   Text,
   Container,
   Spinner,
+  Input,
 } from '@chakra-ui/react'
 // Here we have used react-icons package for the icons
 import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi'
@@ -108,17 +109,17 @@ export default function CarouselReport() {
                       
                   >
                 {/* This is the block you need to change, to customize the caption */}
-                    <Container size="container.lg" height="600px" position="relative">
+                    <Container size="container.lg" height="600px" position="relative" alignItems={"center"} justifyContent={"center"}>
                         <Stack
                             spacing={6}
-                            w={'full'}
+                            w={'60%'}
                             maxW={'lg'}
                             position="absolute"
                             top="50%"
                             transform="translate(0, -50%)">
-                            <Heading fontSize={{ base: '3xl', md: '4xl', lg: '5xl' }}>
-                                {report.title}
-                            </Heading>
+                            
+                              <Input value={report.title}/>  {report.title}
+                           
                             <Text fontSize={{ base: 'md', lg: 'lg' }} color="GrayText">
                                 {report.description}
                             </Text>
