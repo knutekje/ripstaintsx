@@ -1,7 +1,22 @@
-import { Accordion, AccordionButton, AccordionIcon, AccordionItem, AccordionPanel, Box,  Flex, Heading, Spacer, Spinner, useColorModeValue } from "@chakra-ui/react";
+import {Box,  Flex, Heading, Spacer, Spinner } from "@chakra-ui/react";
 import { useQuery } from "@tanstack/react-query";
-import {  FaCheckCircle } from "react-icons/fa";
-import { FaCircleXmark } from "react-icons/fa6";
+
+
+import {
+    Table,
+    Thead,
+    Tbody,
+   
+    Tr,
+    Th,
+    Td,
+   
+    TableContainer,
+} from '@chakra-ui/react'
+  
+import { url } from "../App";
+import ModalVerify from "./ModalVerify";
+import { DeleteButton } from "./DeleteButton";
 
 export type Report = {
     id: {
@@ -24,7 +39,7 @@ const ReportList = () => {
         queryKey: ["reports"],
         queryFn: async () => {
             try {
-                const res = await fetch("http://localhost:5172/Report")
+                const res = await fetch(url + "/Report")
                 const data = await res.json()
                 return data
             } catch (error) {
@@ -36,53 +51,41 @@ const ReportList = () => {
         
       
         <> 
-            <Flex>
-            {isLoading ? <Spinner/> : <Box/>}
-                <Heading>Report</Heading>
-            </Flex>
-            <Flex>
-                <Accordion
-                    allowToggle={true}
-                    bg={useColorModeValue("gray.400", "gray.700")}
-                    position={"relative"} borderRadius={"1rem"}
-                    maxH={"60vh"} w={[300, 400, 500]}
-                    overflowY={"auto"} >
-               
-                {reports?.map((report) => (
-                    
-                    <AccordionItem  key={report.id.pid}>
-                        <h2>
-                            <AccordionButton
-                                _expanded={{ bg: 'tomato', color: 'white' }}>
-                                <Box as='span' flex='1' textAlign='left'>
-                                    {report.title}  
-                                </Box>
-                                <Box as='span' flex='1' textAlign='right'>
-                                    
-                                    {report.reportedTime.substring(0, 10)}
-                                </Box>
-                                <AccordionIcon />
-                            </AccordionButton>
-                        </h2>
-                        <AccordionPanel>
-                            <p>{report.description}</p>
-                            
-                            <p>{report.quantity}</p>
-                            <Flex>
-                                <Box >
-                                    
-                                    {report.status ? <FaCheckCircle color={"grey"} /> : <FaCheckCircle color={"green"} />}
-                                </Box>
-                                <Spacer />
-                                <Box>
-                                    <FaCircleXmark color={"red"} />
-                                </Box>
-                            </Flex>
-                        </AccordionPanel>
-                    </AccordionItem>))}
-                </Accordion>
-                </Flex>
-                </>
+           
+            {isLoading ? <Spinner/> : <Flex>
+             
+
+             <TableContainer>
+                 <Table size='sm'>
+                     <Thead>
+                     <Tr>
+                         <Th>To convert</Th>
+                         <Th>into</Th>
+                         <Th isNumeric>multiply by</Th>
+                     </Tr>
+                     </Thead>
+ 
+
+                     <Tbody>
+
+                         {reports?.map((report) => (
+                             <Tr>
+                                 <Td>{report.title }</Td>
+                                 <Td>{report.reportedTime.substring(0, 10) }</Td>
+                                 <Td isNumeric><ModalVerify/><DeleteButton/></Td>
+                             </Tr>))}
+
+                     </Tbody>
+
+                 </Table>
+         </TableContainer>
+     </Flex>}
+                
+       
+           
+    </>
+        
+
             
    
         

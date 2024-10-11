@@ -1,6 +1,7 @@
 
 import { useQuery } from "@tanstack/react-query"
 import { Select, Spinner } from "@chakra-ui/react"
+import { url } from "../App"
 
 type FoodItem = {
     itemnr: string,
@@ -15,7 +16,7 @@ export const ItemDropDown = () => {
         queryKey: ["fooditems"],
         queryFn: async () => {
             try {
-                const res = await fetch("http://localhost:5172/FoodItem")
+                const res = await fetch(url + "/FoodItem")
                 const data = await res.json()
                 console.log(data)
                 return data

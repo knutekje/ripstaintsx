@@ -18,6 +18,7 @@ import { BiLeftArrowAlt, BiRightArrowAlt } from 'react-icons/bi'
 import Slider from 'react-slick'
 import { useQuery } from '@tanstack/react-query'
 import { Report } from './ReportList'
+import { url } from '../App'
 
 // Settings for the slider
 const settings = {
@@ -37,7 +38,7 @@ export default function CarouselReport() {
         queryKey: ["reports"],
         queryFn: async () => {
             try {
-                const res = await fetch("http://localhost:5172/Report")
+                const res = await fetch(url + "/Report")
                 const data = await res.json()
                 return data
             } catch (error) {

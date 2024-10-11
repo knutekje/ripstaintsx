@@ -5,6 +5,8 @@ import VerifyPage from './Verify/VerifyPage'
 import ReportPage from './Report/ReportPage'
 import StatsPage from "./Statistics/StatsPage";
 
+export const url = "http://localhost:8080";
+
 function App() {
 
   return (

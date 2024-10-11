@@ -1,8 +1,13 @@
 
-import CarouselReport from "./CarouselReport"
+//import CarouselReport from "./CarouselReport"
+import ReportList from "./ReportList"
 
 function VerifyPage() {
-    return (<CarouselReport/>)
+    return (
+        <>
+            <ReportList />
+        </>
+    )
 }
 
 export default VerifyPage
