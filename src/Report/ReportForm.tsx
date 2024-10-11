@@ -1,6 +1,6 @@
 import { Button, Flex,  Input, NumberDecrementStepper, NumberIncrementStepper, NumberInput, NumberInputField, NumberInputStepper } from "@chakra-ui/react"
 import { useForm } from '@tanstack/react-form'
-import { ItemDropDown } from "./ItemDropDown"
+import { ItemDropDown } from "../Verify/ItemDropDown"
 //import { QueryClient, useQuery, useQueryClient } from "@tanstack/react-query"
 //import { useState } from "react"
 
@@ -15,7 +15,7 @@ export const ReportForm = () => {
             title: '',
             description: '',
             status: false,
-            quantity: '21',
+            quantity: '',
             foodItem: '',
             reportedTime: "2024-10-09T07:28:57.534Z",
 
@@ -42,7 +42,7 @@ export const ReportForm = () => {
             flexWrap={"wrap"}
             flexShrink={5}
             borderColor={"white"}
-                border="1px"
+            border="1px"
             borderRadius="lg" m={{ base: 5, md: 16, lg: 10 }} p={{ base: 5, lg: 16 }}
             >
 

@@ -1,5 +1,4 @@
-import {Box,  Flex, Heading, Spacer, Spinner } from "@chakra-ui/react";
-import { useQuery } from "@tanstack/react-query";
+
 
 
 import {
@@ -9,44 +8,44 @@ import {
    
     Tr,
     Th,
-    Td,
+   
    
     TableContainer,
+    Spinner,
+    Flex,
 } from '@chakra-ui/react'
+
+import { useQuery } from '@tanstack/react-query';
   
 import { url } from "../App";
-import ModalVerify from "./ModalVerify";
-import { DeleteButton } from "./DeleteButton";
 
-export type Report = {
-    id: {
-        timestamp: 0,
-        machine: 0,
-        pid: 0,
-        increment: 0,
-        creationTime: ""
-      },
-      title: string,
-      description: string,
-      status: true,
-      quantity: 0,
-      reportedTime: string
-}
+import {  Report } from "../Types/Types";
+
+
+import  ReportItem  from "./ReportItem";
+
+
 
 
 const ReportList = () => {
-    const {data:reports, isLoading } = useQuery<Report[]>({
-        queryKey: ["reports"],
-        queryFn: async () => {
-            try {
-                const res = await fetch(url + "/Report")
-                const data = await res.json()
-                return data
-            } catch (error) {
-                console.log(error)
-            }
-        }
-    })
+    const { data: reports, isLoading } = useQuery<Report[]>({
+		queryKey: ["reports"],
+		queryFn: async () => {
+			try {
+				const res = await fetch(url + "/report");
+				const data = await res.json();
+
+				if (!res.ok) {
+					throw new Error(data.error || "Something went wrong");
+				}
+				return data || [];
+			} catch (error) {
+				console.log(error);
+			}
+		},
+	});
+
+   
     return (
         
       
@@ -68,12 +67,9 @@ const ReportList = () => {
 
                      <Tbody>
 
-                         {reports?.map((report) => (
-                             <Tr>
-                                 <Td>{report.title }</Td>
-                                 <Td>{report.reportedTime.substring(0, 10) }</Td>
-                                 <Td isNumeric><ModalVerify/><DeleteButton/></Td>
-                             </Tr>))}
+                            {reports?.map((report) => (
+                              <ReportItem key={report._id} report={report} /> 
+                            ))}
 
                      </Tbody>
 

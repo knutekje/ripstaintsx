@@ -2,16 +2,14 @@
 import { useQuery } from "@tanstack/react-query"
 import { Select, Spinner } from "@chakra-ui/react"
 import { url } from "../App"
-
-type FoodItem = {
-    itemnr: string,
-    itemName: string,
-    itemPrice: number,
-    itemUnit: string,
-}
+import { FoodItem } from "../Types/Types"
+import {  memo } from "react"
+interface Props {
+    handleNameSubmit: (foodItem: FoodItem) => void;
+  }
 
 
-export const ItemDropDown = () => {
+export function  ItemDropDown ({handleNameSubmit}: Props  )  { 
     const { data: fooditems, isLoading } = useQuery<FoodItem[]>({
         queryKey: ["fooditems"],
         queryFn: async () => {
@@ -36,7 +34,7 @@ export const ItemDropDown = () => {
             {isLoading ? <Spinner/> :    <Select placeholder='Select option'>
             {fooditems?.map((fooditem) => (
 
-                <option id={fooditem.itemnr} value = { fooditem.itemnr } > { fooditem.itemName }</option>
+                <option onClick={() => handleNameSubmit(fooditem)} id={String(fooditem._id)} value={fooditem._id} > { fooditem.itemnr}:{ fooditem.itemName }:{ fooditem.itemPrice }</option>
             ))}
             </Select>}
       
@@ -45,5 +43,8 @@ export const ItemDropDown = () => {
         
            
 )
-
+    //onChange={e => setText(e.target.value)}
+    /*onChange={(fooditem)=>{setFoodItem(fooditem: SetStateAction<FoodItem>) */
+    //onSelect={() => setFoodItem(fooditem)}
 }
+export default memo(ItemDropDown);
