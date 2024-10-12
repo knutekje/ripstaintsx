@@ -1,5 +1,5 @@
-import { Box, Flex, Button,  useColorMode,  Container,   Heading } from "@chakra-ui/react";
-import {  FaClipboardCheck, FaClipboardQuestion, FaFrog } from "react-icons/fa6";
+import { Box, Flex, Button,  useColorMode,  Container,    } from "@chakra-ui/react";
+import {  FaClipboardCheck, FaClipboardQuestion,  } from "react-icons/fa6";
 import { IoMoon, IoStatsChartSharp } from "react-icons/io5";
 import { LuSun } from "react-icons/lu";
 import { Link } from "react-router-dom";
@@ -16,18 +16,7 @@ export default function Navbar() {
 			
 
 				<Flex alignItems={"flex-start"} justifyContent={"space-between"} flexDirection={"column"}  >
-				{/* 	<Flex alignItems={"flex-start"} gap={2} background={"grey.600"}>
-						<Heading fontSize={"lg"} fontWeight={700}>
-							Rip Stain						</Heading>
-						
-								<FaFrog transform={""} color={"green"} size="large" />
-						
-						{/* Toggle Color Mode 
-						<Button onClick={toggleColorMode}>
-							{colorMode === "light" ? <IoMoon /> : <LuSun size={14} />}
-						</Button>
-					</Flex> */}
-					{/* LEFT SIDE */}
+			
 					<Flex
 						justifyContent={"left"}
 						alignItems={"center"}

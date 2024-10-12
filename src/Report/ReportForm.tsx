@@ -11,6 +11,7 @@ import {
 } from "@chakra-ui/react";
 import { useForm } from "@tanstack/react-form";
 import { FaWind } from "react-icons/fa6";
+import { url } from "../App";
 //import { QueryClient, useQuery, useQueryClient } from "@tanstack/react-query"
 //import { useState } from "react"
 
@@ -27,7 +28,7 @@ export const ReportForm = () => {
     onSubmit: async ({ value }) => {
       console.log(value);
       try {
-        await fetch("http://localhost:5172/Report", {
+        await fetch(url + "/Report", {
           method: "POST",
           headers: {
             "Content-type": "application/json",

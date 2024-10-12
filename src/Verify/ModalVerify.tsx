@@ -20,7 +20,11 @@ import { useState } from "react";
 import { FoodItem } from "../Types/Types";
 
 function ModalVerify({ report }: { report: Report }) {
-  const [foodItem, setFoodItem] = useState<FoodItem>();
+  const [foodItem, setFoodItem] = useState<FoodItem>({_id: "",
+    itemnr: 1,
+    itemName: "string",
+    itemPrice: 12,
+    itemUnit: "string"});
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   function handleChange(foodItem: FoodItem) {
@@ -40,7 +44,7 @@ function ModalVerify({ report }: { report: Report }) {
         id: {},
         itemnr: 0,
         itemName: "string",
-        itemPrice: 0,
+        itemPrice: 12,
         itemUnit: "string",
       },
     },
@@ -83,7 +87,7 @@ function ModalVerify({ report }: { report: Report }) {
               <Text>{report.reportedTime}</Text>
               <ItemDropDown handleNameSubmit={handleChange} />
               <Text>
-                Value: {Number(report.quantity) * foodItem?.itemPrice}
+                Value: {Number(report.quantity) * foodItem.itemPrice}
               </Text>
             </ModalBody>
 
