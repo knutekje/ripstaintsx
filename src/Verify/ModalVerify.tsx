@@ -22,12 +22,9 @@ import { FoodItem } from "../Types/Types";
 function ModalVerify({ report }: { report: Report }) {
   const [foodItem, setFoodItem] = useState<FoodItem>();
   const { isOpen, onOpen, onClose } = useDisclosure()
-  //const [passedFoodItem, setFoodItem] = useState<FoodItem>()
-   console.log(report)
-  console.log(foodItem)
+
   
   function handleChange(foodItem: FoodItem) {
-    console.log(foodItem)
     setFoodItem(foodItem)
   }
   const form = useForm({

@@ -16,17 +16,17 @@ export default function Navbar() {
 			
 
 				<Flex alignItems={"flex-start"} justifyContent={"space-between"} flexDirection={"column"}  >
-					<Flex alignItems={"flex-start"} gap={2} background={"grey.600"}>
+				{/* 	<Flex alignItems={"flex-start"} gap={2} background={"grey.600"}>
 						<Heading fontSize={"lg"} fontWeight={700}>
 							Rip Stain						</Heading>
 						
 								<FaFrog transform={""} color={"green"} size="large" />
 						
-						{/* Toggle Color Mode */}
+						{/* Toggle Color Mode 
 						<Button onClick={toggleColorMode}>
 							{colorMode === "light" ? <IoMoon /> : <LuSun size={14} />}
 						</Button>
-					</Flex>
+					</Flex> */}
 					{/* LEFT SIDE */}
 					<Flex
 						justifyContent={"left"}
@@ -34,7 +34,9 @@ export default function Navbar() {
 						gap={2}
 						flexWrap={"wrap"}
 					>
-						
+						<Button onClick={toggleColorMode}>
+							{colorMode === "light" ? <IoMoon /> : <LuSun size={14} />}
+						</Button>
 						<Button leftIcon={<FaClipboardCheck />}>
 							<Link to="VerifyPage">Verify Reports</Link>
 						</Button>

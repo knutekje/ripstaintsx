@@ -1,5 +1,5 @@
 export type FoodItem = {
-    _id: number;
+    _id: string;
     itemnr: number;
     itemName: string;
     itemPrice: number;
@@ -7,7 +7,7 @@ export type FoodItem = {
 }
 
 export type Report = {
-    _id: number;
+    _id: string;
     title: string;
     description: string;
     status: boolean;

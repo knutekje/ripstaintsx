@@ -34,7 +34,7 @@ export function  ItemDropDown ({handleNameSubmit}: Props  )  {
             {isLoading ? <Spinner/> :    <Select placeholder='Select option'>
             {fooditems?.map((fooditem) => (
 
-                <option onClick={() => handleNameSubmit(fooditem)} id={String(fooditem._id)} value={fooditem._id} > { fooditem.itemnr}:{ fooditem.itemName }:{ fooditem.itemPrice }</option>
+                <option onClick={() => handleNameSubmit(fooditem)} id={(fooditem._id)} value={fooditem._id} > { fooditem.itemnr}:{ fooditem.itemName }:{ fooditem.itemPrice }</option>
             ))}
             </Select>}
       
@@ -43,8 +43,6 @@ export function  ItemDropDown ({handleNameSubmit}: Props  )  {
         
            
 )
-    //onChange={e => setText(e.target.value)}
-    /*onChange={(fooditem)=>{setFoodItem(fooditem: SetStateAction<FoodItem>) */
-    //onSelect={() => setFoodItem(fooditem)}
+    
 }
 export default memo(ItemDropDown);

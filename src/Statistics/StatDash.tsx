@@ -20,8 +20,8 @@ export const StatDash = () => {
             </Flex>
             <Flex>
                 <Stat>
-                    <StatLabel>Collected Fees</StatLabel>
-                    <StatNumber>£0.00</StatNumber>
+                    <StatLabel>{month}</StatLabel>
+                    <StatNumber>{year}</StatNumber>
                     <StatHelpText>Feb 12 - Feb 28</StatHelpText>
                 </Stat>
             </Flex>

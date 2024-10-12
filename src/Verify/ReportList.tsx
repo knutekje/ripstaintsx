@@ -1,27 +1,12 @@
-
-
-
 import {
-    Table,
-    Thead,
-    Tbody,
-   
-    Tr,
-    Th,
-   
-   
-    TableContainer,
-    Spinner,
-    Flex,
-} from '@chakra-ui/react'
-
-import { useQuery } from '@tanstack/react-query';
   
+    Spinner,
+    
+    Stack,
+} from '@chakra-ui/react'
+import { useQuery } from '@tanstack/react-query';
 import { url } from "../App";
-
 import {  Report } from "../Types/Types";
-
-
 import  ReportItem  from "./ReportItem";
 
 
@@ -48,43 +33,15 @@ const ReportList = () => {
    
     return (
         
-      
         <> 
-           
-            {isLoading ? <Spinner/> : <Flex>
-             
-
-             <TableContainer>
-                 <Table size='sm'>
-                     <Thead>
-                     <Tr>
-                         <Th>To convert</Th>
-                         <Th>into</Th>
-                         <Th isNumeric>multiply by</Th>
-                     </Tr>
-                     </Thead>
- 
-
-                     <Tbody>
-
+            {isLoading ? <Spinner /> :
+                <Stack>
                             {reports?.map((report) => (
                               <ReportItem key={report._id} report={report} /> 
                             ))}
-
-                     </Tbody>
-
-                 </Table>
-         </TableContainer>
-     </Flex>}
-                
-       
-           
-    </>
-        
-
-            
-   
-        
+                </Stack>
+            }
+        </>      
     )
 }
 export default ReportList
