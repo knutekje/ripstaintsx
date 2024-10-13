@@ -29,7 +29,7 @@ const ReportList = () => {
       ) : (
         <Stack>
           {reports?.map((report) => (
-            <ReportItem key={report._id} report={report} />
+            <ReportItem key={report.id} report={report} />
           ))}
         </Stack>
       )}

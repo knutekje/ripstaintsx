@@ -10,8 +10,10 @@ function ReportItem({ report }: { report: Report }) {
     mutationKey: ["deleteTodo"],
     mutationFn: async () => {
       try {
-        const res = await fetch(url + `/report/${report._id}`, {
-          method: "DELETE",
+        const res = await fetch(url + `/report/${report.id}`, {
+          method: 'DELETE',
+          headers: {
+          },
         });
         const data = await res.json();
         if (!res.ok) {
@@ -29,6 +31,9 @@ function ReportItem({ report }: { report: Report }) {
 
   return (
     <Flex gap={2} alignItems={"center"}>
+
+
+   
       <Flex
         flex={1}
         alignItems={"center"}
@@ -40,7 +45,7 @@ function ReportItem({ report }: { report: Report }) {
       >
         <Box>
           <Heading size="md">
-            {report.title} : {report.reportedTime.substring(0, 10)}
+            {report.itemName} : {report.reportedTime.substring(0, 10)}
           </Heading>
           <Heading noOfLines={1} size="sm">
             {report.description}
@@ -52,9 +57,10 @@ function ReportItem({ report }: { report: Report }) {
           ) : (
             <Button backgroundColor={"red.500"} onClick={() => deleteReport()}>
               Delete
-            </Button>
+              </Button>
+              
           )}
-          <ModalVerify key={report._id} report={report} />
+          <ModalVerify key={report.id} report={report} />
         </Box>
       </Flex>
     </Flex>

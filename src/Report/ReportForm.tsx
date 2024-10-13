@@ -14,16 +14,16 @@ import { FaWind } from "react-icons/fa6";
 import { url } from "../App";
 //import { QueryClient, useQuery, useQueryClient } from "@tanstack/react-query"
 //import { useState } from "react"
-
 export const ReportForm = () => {
+
   const form = useForm({
     defaultValues: {
-      title: "",
+      id: "",
+      itemName: "",
       description: "",
-      status: false,
       quantity: "",
       foodItem: "",
-      reportedTime: "2024-10-09T07:28:57.534Z",
+      reportedTime: "0001-01-01T00:00:00+00:00",
     },
     onSubmit: async ({ value }) => {
       console.log(value);
@@ -62,7 +62,7 @@ export const ReportForm = () => {
           }}
         >
           <form.Field
-            name="title"
+            name="itemName"
             children={(field) => (
               <>
                 <label htmlFor="title">Title</label>

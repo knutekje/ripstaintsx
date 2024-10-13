@@ -7,10 +7,9 @@ export type FoodItem = {
 }
 
 export type Report = {
-    _id: string;
-    title: string;
+    id: string;
+    itemName: string;
     description: string;
-    status: boolean;
     quantity: string;
     reportedTime: string;
 }

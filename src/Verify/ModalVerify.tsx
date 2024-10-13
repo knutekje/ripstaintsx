@@ -57,6 +57,9 @@ function ModalVerify({ report }: { report: Report }) {
         },
         body: JSON.stringify({ report, foodItem }),
       });
+      await fetch(`${url}/report/${report.id}`,{
+        method: "DELETE",
+      })
     },
   });
 
