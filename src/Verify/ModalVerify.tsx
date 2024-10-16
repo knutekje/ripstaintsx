@@ -82,12 +82,12 @@ function ModalVerify({ report }: { report: Report }) {
             <ModalHeader>Verify Report</ModalHeader>
             <ModalCloseButton />
             <ModalBody pb={6}>
-              <Text>{report._id}</Text>
-              <Text>{report.title}</Text>
+              <Text>{report.id}</Text>
+              <Text>{report.itemName}</Text>
               <Text>{report.description}</Text>
               <Text>{report.quantity}</Text>
-              <Text>{report.status}</Text>
               <Text>{report.reportedTime}</Text>
+              
               <ItemDropDown handleNameSubmit={handleChange} />
               <Text>
                 Value: {Number(report.quantity) * foodItem.itemPrice}
