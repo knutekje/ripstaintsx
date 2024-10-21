@@ -6,21 +6,28 @@ export type FoodItem = {
     itemUnit: string;
 }
 
+export type ReportDTO = {
+    sumValue: number,
+    itemName: string
+}
+
 export type Report = {
     id: string;
     itemName: string;
     description: string;
     quantity: string;
+    department: string;
     reportedTime: string;
 }
       
 
 export type VerifiedReport = {
-    _id: number;
-    foodItem: object;
-    quantity: number;
-    value: number;
-    reportedTime: string;
-  
+    id: string;
+    foodItemId: string,
+    foodItemName: string,
+    quantity: number,
+    value: number,
+    department: string,
+    reportedTime: string
 }
 

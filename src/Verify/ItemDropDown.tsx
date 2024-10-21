@@ -24,17 +24,18 @@ export function ItemDropDown({ handleNameSubmit }: Props) {
 
   return (
     <>
+      <label htmlFor="foodItem">FoodItem</label>
       {isLoading ? (
         <Spinner />
       ) : (
-        <Select placeholder="Select option">
+        <Select id="foodItem" placeholder="Select option">
           {fooditems?.map((fooditem) => (
             <option
               onClick={() => handleNameSubmit(fooditem)}
               id={fooditem._id}
               value={fooditem._id}
             >
-              {" "}
+          
               {fooditem.itemnr}:{fooditem.itemName}:{fooditem.itemPrice}
             </option>
           ))}

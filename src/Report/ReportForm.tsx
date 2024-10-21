@@ -8,6 +8,7 @@ import {
   NumberInput,
   NumberInputField,
   NumberInputStepper,
+  Select,
 } from "@chakra-ui/react";
 import { useForm } from "@tanstack/react-form";
 import { FaWind } from "react-icons/fa6";
@@ -22,6 +23,7 @@ export const ReportForm = () => {
       itemName: "",
       description: "",
       quantity: "",
+      department: "",
       foodItem: "",
       reportedTime: "0001-01-01T00:00:00+00:00",
     },
@@ -84,6 +86,31 @@ export const ReportForm = () => {
                   onBlur={field.handleBlur}
                   onChange={(e) => field.handleChange(e.target.value)}
                 />
+              </>
+            )}
+          />
+          <form.Field
+            name="department"
+            children={(field) => (
+              <>{/*   <option
+                onClick={() => handleNameSubmit(fooditem)}
+                id={fooditem._id}
+                value={fooditem._id}
+              >
+            
+                {fooditem.itemnr}:{fooditem.itemName}:{fooditem.itemPrice}
+              </option>*/}
+                <label htmlFor="department">Description</label>
+                <Select
+                  placeholder="Choose department"
+                  value={field.state.value}
+                  onBlur={field.handleBlur}
+                  onChange={(e) => field.handleChange(e.target.value)}>
+                  <option value="Bar">Bar</option>
+                  <option value="Lunch&Dinner">Lunch&Dinner</option>
+                  <option value="Breakfast">Breakfast</option>
+                  
+                </Select>
               </>
             )}
           />

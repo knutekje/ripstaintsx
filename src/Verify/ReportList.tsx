@@ -1,4 +1,4 @@
-import { Spinner, Stack } from "@chakra-ui/react";
+import {  Stack, Text } from "@chakra-ui/react";
 import { useQuery } from "@tanstack/react-query";
 import { url } from "../App";
 import { Report } from "../Types/Types";
@@ -24,15 +24,25 @@ const ReportList = () => {
 
   return (
     <>
-      {isLoading ? (
-        <Spinner />
-      ) : (
-        <Stack>
-          {reports?.map((report) => (
-            <ReportItem key={report.id} report={report} />
-          ))}
-        </Stack>
-      )}
+ 
+
+
+    
+			{!isLoading && reports?.length === 0 && (
+				<Stack alignItems={"center"} gap='3'>
+					<Text fontSize={"xl"} textAlign={"center"} color={"gray.500"}>
+          No pending reports 🤞
+					</Text>
+					
+				</Stack>
+			)}
+			<Stack gap={3}>
+				{reports?.map((report) => (
+					<ReportItem key={report.id} report={report} />
+				))}
+			</Stack>
+				
+			
     </>
   );
 };

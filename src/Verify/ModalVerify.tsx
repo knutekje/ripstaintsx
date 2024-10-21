@@ -10,6 +10,8 @@ import {
   useDisclosure,
   Text,
   Flex,
+  Select,
+  Input,
 } from "@chakra-ui/react";
 import ItemDropDown from "./ItemDropDown";
 import { LuInspect } from "react-icons/lu";
@@ -82,13 +84,29 @@ function ModalVerify({ report }: { report: Report }) {
             <ModalHeader>Verify Report</ModalHeader>
             <ModalCloseButton />
             <ModalBody pb={6}>
-              <Text>{report.id}</Text>
-              <Text>{report.itemName}</Text>
-              <Text>{report.description}</Text>
-              <Text>{report.quantity}</Text>
-              <Text>{report.reportedTime}</Text>
+
+              <label htmlFor="itemname">Item name</label>
+              <Input id="itemname" value={report.itemName} disabled />
               
-              <ItemDropDown handleNameSubmit={handleChange} />
+              <label htmlFor="description">Description</label>
+              <Input id="description" value={report.description} disabled />
+
+              <label htmlFor="quantity">Quantity</label>
+              <Input id="quantity" value={report.quantity} disabled />
+
+              <label htmlFor="reportedTime">Reported time</label>
+              <Input id="reportedTime" value={report.reportedTime} disabled />
+
+
+              <label htmlFor="department">Department</label>
+              <Select id="department" placeholder={report.department}>
+                <option value="Bar">Bar</option>
+                <option value="Kitchen">Kitchen</option>
+                <option value="Breakfast">Breakfast</option>
+              </Select>
+              
+              
+              <ItemDropDown  handleNameSubmit={handleChange} />
               <Text>
                 Value: {Number(report.quantity) * foodItem.itemPrice}
               </Text>
