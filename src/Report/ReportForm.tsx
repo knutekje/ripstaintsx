@@ -3,18 +3,20 @@ import {
   Flex,
   Heading,
   Input,
+  InputGroup,
+  InputLeftAddon,
   NumberDecrementStepper,
   NumberIncrementStepper,
   NumberInput,
   NumberInputField,
   NumberInputStepper,
   Select,
+  Spacer,
 } from "@chakra-ui/react";
 import { useForm } from "@tanstack/react-form";
-import { FaWind } from "react-icons/fa6";
+import { Fa42Group } from "react-icons/fa6";
 import { url } from "../App";
-//import { QueryClient, useQuery, useQueryClient } from "@tanstack/react-query"
-//import { useState } from "react"
+
 export const ReportForm = () => {
 
   const form = useForm({
@@ -54,8 +56,9 @@ export const ReportForm = () => {
         borderRadius="lg"
         m={{ base: 5, md: 16, lg: 10 }}
         p={{ base: 5, lg: 16 }}
+        alignContent={"space-around"}
       >
-        <Heading>Post Report</Heading>
+        <Heading textAlign={"right"}>Post Report</Heading>
         <form
           onSubmit={(e) => {
             e.preventDefault();
@@ -63,44 +66,51 @@ export const ReportForm = () => {
             form.handleSubmit();
           }}
         >
+          <Flex p="2">
           <form.Field
             name="itemName"
             children={(field) => (
               <>
-                <label htmlFor="title">Title</label>
-                <Input
+                <InputGroup>
+                  <InputLeftAddon>Item Name</InputLeftAddon>
+                  <Input
                   value={field.state.value}
                   onBlur={field.handleBlur}
                   onChange={(e) => field.handleChange(e.target.value)}
                 />
+                </InputGroup>
+                
               </>
             )}
-          />
+            />
+            </Flex>
+          <Flex p={2}>
           <form.Field
             name="description"
             children={(field) => (
               <>
-                <label htmlFor="description">Description</label>
-                <Input
+                
+                <InputGroup>
+                  <InputLeftAddon>Description</InputLeftAddon>
+                  <Input
                   value={field.state.value}
                   onBlur={field.handleBlur}
                   onChange={(e) => field.handleChange(e.target.value)}
                 />
+                </InputGroup>
+              
+               
               </>
             )}
-          />
+            />
+          </Flex>
+          <Flex p="2">
           <form.Field
             name="department"
             children={(field) => (
-              <>{/*   <option
-                onClick={() => handleNameSubmit(fooditem)}
-                id={fooditem._id}
-                value={fooditem._id}
-              >
-            
-                {fooditem.itemnr}:{fooditem.itemName}:{fooditem.itemPrice}
-              </option>*/}
-                <label htmlFor="department">Description</label>
+              <>
+                <InputGroup>
+                <InputLeftAddon>Description</InputLeftAddon>
                 <Select
                   placeholder="Choose department"
                   value={field.state.value}
@@ -110,33 +120,47 @@ export const ReportForm = () => {
                   <option value="Lunch&Dinner">Lunch&Dinner</option>
                   <option value="Breakfast">Breakfast</option>
                   
-                </Select>
+                  </Select>
+                  </InputGroup>
               </>
             )}
-          />
+            />
+          </Flex>
+          <Flex p="2">
           <form.Field
             name="quantity"
             children={(field) => (
               <>
-                <label htmlFor="quantity">Quantity</label>
-                <NumberInput>
-                  <NumberInputField
+                
+                <InputGroup>
+                <InputLeftAddon>Quantity</InputLeftAddon>
+                  <Input
                     value={field.state.value}
                     onBlur={field.handleBlur}
+                    type="number"
                     onChange={(e) => field.handleChange(e.target.value)}
                   />
-                  <NumberInputStepper>
-                    <NumberIncrementStepper />
-                    <NumberDecrementStepper />
-                  </NumberInputStepper>
-                </NumberInput>
+                
+                  </InputGroup>
               </>
             )}
           />
-
-          <Button leftIcon={<FaWind />} type="submit">
-            Submit
-          </Button>
+          </Flex>
+          <Flex p="2" flex={2}>
+            <Flex
+              justifyContent={"left"}
+              alignItems={"center"}
+              gap={2}>
+              <Button backgroundColor="green.400" leftIcon={<Fa42Group />} type="submit">
+                Submit
+              </Button>
+            </Flex>
+            <Spacer/>
+            <Flex justifyContent={"right"}>
+              <Button onClick={() => form.reset()}>Reset</Button>
+            </Flex>
+            
+          </Flex>
         </form>
       </Flex>
     </>

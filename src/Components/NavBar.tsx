@@ -15,7 +15,7 @@ export default function Navbar() {
 			<Box   borderRadius={"5"} >
 			
 
-				<Flex alignItems={"flex-start"} justifyContent={"space-between"} flexDirection={"column"}  >
+				<Flex alignItems={"flex-start"} justifyContent={"space-between"} flexDirection={"row"}  >
 			
 					<Flex
 						justifyContent={"left"}

@@ -3,6 +3,7 @@ import { Select, Spinner } from "@chakra-ui/react";
 import { url } from "../App";
 import { FoodItem } from "../Types/Types";
 import { memo } from "react";
+
 interface Props {
   handleNameSubmit: (foodItem: FoodItem) => void;
 }

@@ -1,12 +1,13 @@
 import { url } from '../../../App';
 import { useQuery } from '@tanstack/react-query';
-import { ReportDTO } from '../../../Types/Types';
+import { ReportDTO, YearMonthProp } from '../../../Types/Types';
 import { Pie } from 'react-chartjs-2'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
-import { Flex } from '@chakra-ui/react';
+import { Flex, Text } from '@chakra-ui/react';
+import { FC } from 'react';
 
 
-export const ByDepartment = () => 
+export const ByDepartment : FC<YearMonthProp> = (props): JSX.Element => 
 {
   const { data: departments, isLoading } = useQuery<ReportDTO[]>({
     queryKey: ["departments"],
@@ -34,9 +35,9 @@ export const ByDepartment = () =>
       label: 'My First Dataset',
       data: departments?.map(item => item.sumValue),
       backgroundColor: [
-        'rgb(255, 99, 132)',
-        'rgb(255, 0, 21)',
-        'rgb(255, 205, 86)'
+        "#00FFFF",
+        '#7FFF00',
+        '#FF00FF'
       ],
       hoverOffset: 4
     }]

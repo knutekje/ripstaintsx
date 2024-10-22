@@ -1,11 +1,12 @@
 import { Flex,  Stack, Text } from "@chakra-ui/react";
 import { useQuery } from "@tanstack/react-query";
 import { url } from "../../../App";
-import { ReportDTO } from "../../../Types/Types";
+import { ReportDTO, YearMonthProp } from "../../../Types/Types";
 import { TopTenItem } from "./TopTenItem";
+import { FC } from "react";
 
 
-const TopTenList = () =>{
+const TopTenList : FC<YearMonthProp> = (props): JSX.Element =>{
 const { data: toptens, isLoading } = useQuery<[ReportDTO]>({
     queryKey: ["TopTens"],
     queryFn: async () => {
@@ -34,7 +35,6 @@ const { data: toptens, isLoading } = useQuery<[ReportDTO]>({
           p={2}		
           borderRadius={"lg"}
           justifyContent={"space-between"} >
-          
           {/*WEIRD Conditonal */}
 			{!isLoading && toptens?.length === 1 && (
 				<Stack alignItems={"center"} gap='3'>

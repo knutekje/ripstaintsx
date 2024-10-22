@@ -11,6 +11,11 @@ export type ReportDTO = {
     itemName: string
 }
 
+export type YearMonthProp = {
+    year: number,
+    month: number
+}
+
 export type Report = {
     id: string;
     itemName: string;
