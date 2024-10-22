@@ -13,7 +13,12 @@ export const ByDepartment : FC<YearMonthProp> = (props): JSX.Element =>
     queryKey: ["departments"],
     queryFn: async () => {
       try {
-        const res = await fetch(url + "/stats/department");
+        const res = await fetch(url + "/stats/department",{
+          method: "GET",
+          headers: {
+          "Content-type": "application/json",
+        },
+        body: JSON.stringify((props.month, props.year)), });
         const data = await res.json();
 
         if (!res.ok) {
