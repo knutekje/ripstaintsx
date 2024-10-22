@@ -1,10 +1,9 @@
-import {   Flex, Text } from "@chakra-ui/react";
+import {   Flex } from "@chakra-ui/react";
 
 import { ByDepartment } from "./Components/ByDepartment/ByDepartment";
 import TopTenList from "./Components/TopTen/TopTenList";
 import { TimeSpanChoose } from "./Components/YearMonth/TimeSpanChoose";
 import { useState } from "react";
-import { YearMonthProp } from "../Types/Types";
 
 function StatsPage() {
     const [year, setYear] = useState<number>(2024)

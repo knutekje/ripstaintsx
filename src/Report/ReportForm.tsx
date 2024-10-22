@@ -5,11 +5,7 @@ import {
   Input,
   InputGroup,
   InputLeftAddon,
-  NumberDecrementStepper,
-  NumberIncrementStepper,
-  NumberInput,
-  NumberInputField,
-  NumberInputStepper,
+
   Select,
   Spacer,
 } from "@chakra-ui/react";

@@ -3,7 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import { ReportDTO, YearMonthProp } from '../../../Types/Types';
 import { Pie } from 'react-chartjs-2'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
-import { Flex, Text } from '@chakra-ui/react';
+import { Flex, Spinner } from '@chakra-ui/react';
 import { FC } from 'react';
 
 
@@ -45,6 +45,8 @@ export const ByDepartment : FC<YearMonthProp> = (props): JSX.Element =>
 
   
   return (
+    <>
+      {!isLoading ? <Spinner size="lg"/>:
     <Flex
       border={"1px"}	
       borderColor={"gray.600"}	
@@ -54,6 +56,8 @@ export const ByDepartment : FC<YearMonthProp> = (props): JSX.Element =>
       
       <Pie data={data} />
 
-    </Flex>
+        </Flex>
+      }
+      </>
   )
   }
