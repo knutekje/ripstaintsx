@@ -11,12 +11,7 @@ const { data: toptens, isLoading } = useQuery<[ReportDTO]>({
     queryKey: ["TopTens"],
     queryFn: async () => {
       try {
-        const res = await fetch(url + "/stats/topten",{
-            method: "GET",
-            headers: {
-            "Content-type": "application/json",
-          },
-          body: JSON.stringify((props.month, props.year)), });
+        const res = await fetch(url + `/stats/topten?year=${props.year}&month=${props.month}`);
         const data = await res.json();
 
         if (!res.ok) {
@@ -26,7 +21,8 @@ const { data: toptens, isLoading } = useQuery<[ReportDTO]>({
       } catch (error) {
         console.log(error);
       }
-    },
+  },
+    
 });
   
 

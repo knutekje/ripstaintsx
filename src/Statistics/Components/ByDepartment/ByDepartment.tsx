@@ -13,12 +13,7 @@ export const ByDepartment : FC<YearMonthProp> = (props): JSX.Element =>
     queryKey: ["departments"],
     queryFn: async () => {
       try {
-        const res = await fetch(url + "/stats/department",{
-          method: "GET",
-          headers: {
-          "Content-type": "application/json",
-        },
-        body: JSON.stringify((props.month, props.year)), });
+        const res = await fetch(url + `/stats/department?year=${props.year}&month=${props.month}`);
         const data = await res.json();
 
         if (!res.ok) {
@@ -30,6 +25,7 @@ export const ByDepartment : FC<YearMonthProp> = (props): JSX.Element =>
       }
     },
   });
+
   ChartJS.register(ArcElement, Tooltip, Legend);
 
   const data = {

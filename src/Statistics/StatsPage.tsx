@@ -6,8 +6,8 @@ import { TimeSpanChoose } from "./Components/YearMonth/TimeSpanChoose";
 import { useState } from "react";
 
 function StatsPage() {
-    const [year, setYear] = useState<number>(2024)
-    const [month, setMonth] = useState<number>(1)
+    const [year, setYear] = useState<number>(0)
+    const [month, setMonth] = useState<number>(0)
     
    
     return (

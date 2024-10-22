@@ -15,11 +15,11 @@ export const TimeSpanChoose = ({ setYear, setMonth }: YearMonthChoose) => {
         
         <InputGroup>
             <InputLeftAddon>Year</InputLeftAddon>
-            <Input onChange={(e: React.ChangeEvent<HTMLInputElement>) => setYear(Number(e.target.value))} id="year" type="number" name="year"  />
+            <Input onChange={(e: React.ChangeEvent<HTMLInputElement>) => setYear(Number(e.target.value))} id="year" type="number" name="year" defaultValue={2024} />
         </InputGroup>
         <InputGroup>
             <InputLeftAddon>Month</InputLeftAddon>
-            <Input onChange={(e: React.ChangeEvent<HTMLInputElement>) => setMonth(Number(e.target.value))} id="month" type="number" name="month"  />
+            <Input onChange={(e: React.ChangeEvent<HTMLInputElement>) => setMonth(Number(e.target.value))} id="month" type="number" name="month" defaultValue={10} />
         </InputGroup>
 
   
