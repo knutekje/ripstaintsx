@@ -37,7 +37,7 @@ const { data: toptens, isLoading } = useQuery<[ReportDTO]>({
           borderRadius={"lg"}
           justifyContent={"space-between"} >
           {/*WEIRD Conditonal */}
-			{!isLoading && toptens?.length === 1 && (
+			{toptens?.length === 1 && (
 				<Stack alignItems={"center"} gap='3'>
 					<Text fontSize={"xl"} textAlign={"center"} color={"gray.500"}>
                         No data for stats

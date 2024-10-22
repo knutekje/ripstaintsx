@@ -12,7 +12,7 @@ export default function Navbar() {
 		
 		<Container w={[300, 400, 500]} >
 			
-			<Box   borderRadius={"5"} >
+			<Box  borderRadius={"5"} >
 			
 
 				<Flex alignItems={"flex-start"} justifyContent={"space-between"} flexDirection={"row"}  >

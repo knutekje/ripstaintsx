@@ -47,18 +47,19 @@ export const ByDepartment : FC<YearMonthProp> = (props): JSX.Element =>
   
   return (
     <>
-      {!isLoading ? <Spinner size="lg"/>:
+      
     <Flex
       border={"1px"}	
       borderColor={"gray.600"}	
       p={2}		
       borderRadius={"lg"}
-      width={"50%"}>
-      
-      <Pie data={data} />
+      width={"50%"}
+      >
+        {isLoading ? <Spinner size="lg" /> :
+          <Pie data={data} />}
 
         </Flex>
-      }
+      
       </>
   )
   }
