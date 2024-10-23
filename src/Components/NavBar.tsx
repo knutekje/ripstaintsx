@@ -10,17 +10,17 @@ export default function Navbar() {
 	return (
 
 		
-		<Container w={[300, 400, 500]} >
+		<Container w={[350, 400, 500]} >
 			
-			<Box  borderRadius={"5"} >
+			<Box borderRadius={"5"} >
 			
 
-				<Flex alignItems={"flex-start"} justifyContent={"space-between"} flexDirection={"row"}  >
+				<Flex alignItems={"flex-start"} justifyContent={"space-between"} flexDirection={"column"}  >
 			
 					<Flex
 						justifyContent={"left"}
 						alignItems={"center"}
-						gap={2}
+						gap={1}
 						flexWrap={"wrap"}
 					>
 						<Button onClick={toggleColorMode}>

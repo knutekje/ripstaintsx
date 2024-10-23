@@ -2,7 +2,7 @@
 import { ReportDTO } from "../../../Types/Types";
 import {  Flex,  Text } from "@chakra-ui/react";
 
-export const TopTenItem = ({ topten }: { topten: ReportDTO }) => {
+export const TopTenItem = ({ topten }: { topten: ReportDTO }, toptenIndex: Number) => {
 
  
     return (
@@ -22,7 +22,8 @@ export const TopTenItem = ({ topten }: { topten: ReportDTO }) => {
 			>
             
                
-              <>
+          <>
+                <Text>{}</Text>
                 <Text>{topten.itemName}</Text>
                 <Text>{topten.sumValue.toPrecision(4)}</Text>
               </>

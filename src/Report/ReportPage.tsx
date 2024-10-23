@@ -1,8 +1,18 @@
+
 import {ReportForm} from "./ReportForm";
+
+
+
+
 
 function ReportPage() {
     
-    return(<ReportForm/>)
+    return (
+        <>
+            <ReportForm/>
+        </>
+        
+        )
 
 }
 export default ReportPage

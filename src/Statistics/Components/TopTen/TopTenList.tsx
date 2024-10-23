@@ -3,15 +3,14 @@ import { useQuery } from "@tanstack/react-query";
 import { url } from "../../../App";
 import { ReportDTO, YearMonthProp } from "../../../Types/Types";
 import { TopTenItem } from "./TopTenItem";
-import { FC } from "react";
 
 
-const TopTenList : FC<YearMonthProp> = (props): JSX.Element =>{
-const { data: toptens, isLoading } = useQuery<[ReportDTO]>({
-    queryKey: ["TopTens"],
+const TopTenList : React.FC<YearMonthProp> = ({ year, month }) =>{
+const {  data: toptens, isLoading } = useQuery<[ReportDTO]>({
+    queryKey: ['toptens', year, month],
     queryFn: async () => {
       try {
-        const res = await fetch(url + `/stats/topten?year=${props.year}&month=${props.month}`);
+        const res = await fetch(url + `/stats/topten?year=${year}&month=${month}`);
         const data = await res.json();
 
         if (!res.ok) {
@@ -20,8 +19,10 @@ const { data: toptens, isLoading } = useQuery<[ReportDTO]>({
         return data || [];
       } catch (error) {
         console.log(error);
+        
       }
   },
+  enabled: !!year && !!month,
     
 });
   
@@ -31,23 +32,23 @@ const { data: toptens, isLoading } = useQuery<[ReportDTO]>({
       <Flex
           flex={1}
           alignItems={"center"}	
-          border={"1px"}	
+         /*  border={"1px"}	
           borderColor={"gray.600"}	
           p={2}		
-          borderRadius={"lg"}
+          borderRadius={"lg"} */
           justifyContent={"space-between"} >
           {/*WEIRD Conditonal */}
 			{toptens?.length === 1 && (
 				<Stack alignItems={"center"} gap='3'>
 					<Text fontSize={"xl"} textAlign={"center"} color={"gray.500"}>
-                        No data for stats
+                  
 					</Text>
-					
+         
 				</Stack>
 			)}
 			<Stack gap={3}>
 				{toptens?.map((topten) => (
-					<TopTenItem key={topten.sumValue} topten={topten} />
+          <TopTenItem key={topten.sumValue} topten={topten}  />
 				))}
 			</Stack>
 				

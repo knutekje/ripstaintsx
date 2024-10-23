@@ -12,8 +12,8 @@ export type ReportDTO = {
 }
 
 export type YearMonthProp = {
-    year: number,
-    month: number
+    year: number | string,
+    month: string
 }
 
 export type Report = {
@@ -21,6 +21,7 @@ export type Report = {
     itemName: string;
     description: string;
     quantity: string;
+    file: File;
     department: string;
     reportedTime: string;
 }

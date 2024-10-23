@@ -4,16 +4,15 @@ import { ReportDTO, YearMonthProp } from '../../../Types/Types';
 import { Pie } from 'react-chartjs-2'
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { Flex, Spinner } from '@chakra-ui/react';
-import { FC } from 'react';
 
 
-export const ByDepartment : FC<YearMonthProp> = (props): JSX.Element => 
+export const ByDepartment : React.FC<YearMonthProp> = ({ year, month }) => 
 {
   const { data: departments, isLoading } = useQuery<ReportDTO[]>({
-    queryKey: ["departments"],
+    queryKey: ['departments', year, month],
     queryFn: async () => {
       try {
-        const res = await fetch(url + `/stats/department?year=${props.year}&month=${props.month}`);
+        const res = await fetch(url + `/stats/department?year=${year}&month=${month}`);
         const data = await res.json();
 
         if (!res.ok) {
@@ -48,17 +47,11 @@ export const ByDepartment : FC<YearMonthProp> = (props): JSX.Element =>
   return (
     <>
       
-    <Flex
-      border={"1px"}	
-      borderColor={"gray.600"}	
-      p={2}		
-      borderRadius={"lg"}
-      width={"50%"}
-      >
+   
         {isLoading ? <Spinner size="lg" /> :
           <Pie data={data} />}
 
-        </Flex>
+        
       
       </>
   )

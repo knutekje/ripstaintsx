@@ -5,13 +5,13 @@ import {
   Input,
   InputGroup,
   InputLeftAddon,
-
   Select,
   Spacer,
 } from "@chakra-ui/react";
 import { useForm } from "@tanstack/react-form";
 import { Fa42Group } from "react-icons/fa6";
 import { url } from "../App";
+import './ReportForm.css';
 
 export const ReportForm = () => {
 
@@ -21,6 +21,7 @@ export const ReportForm = () => {
       itemName: "",
       description: "",
       quantity: "",
+      file: "",
       department: "",
       foodItem: "",
       reportedTime: "0001-01-01T00:00:00+00:00",
@@ -54,14 +55,19 @@ export const ReportForm = () => {
         p={{ base: 5, lg: 16 }}
         alignContent={"space-around"}
       >
-        <Heading textAlign={"right"}>Post Report</Heading>
+        <Heading marginTop={"-7%"} textAlign={"right"}>Post Report</Heading>
+        
+      
+
         <form
           onSubmit={(e) => {
             e.preventDefault();
             e.stopPropagation();
             form.handleSubmit();
           }}
+          
         >
+          
           <Flex p="2">
           <form.Field
             name="itemName"
@@ -134,6 +140,26 @@ export const ReportForm = () => {
                     value={field.state.value}
                     onBlur={field.handleBlur}
                     type="number"
+                    onChange={(e) => field.handleChange(e.target.value)}
+                  />
+                
+                  </InputGroup>
+              </>
+            )}
+          />
+          </Flex>
+          <Flex p="2">
+          <form.Field
+            name="file"
+            children={(field) => (
+              <>
+                
+                <InputGroup>
+                <InputLeftAddon>Picture</InputLeftAddon>
+                  <Input
+                    value={field.state.value}
+                    onBlur={field.handleBlur}
+                    type="file"
                     onChange={(e) => field.handleChange(e.target.value)}
                   />
                 
