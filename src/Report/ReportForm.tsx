@@ -12,6 +12,7 @@ import { useForm } from "@tanstack/react-form";
 import { Fa42Group } from "react-icons/fa6";
 import { url } from "../App";
 import './ReportForm.css';
+import { UploadFile } from "./UploadFile";
 
 export const ReportForm = () => {
 
@@ -21,11 +22,13 @@ export const ReportForm = () => {
       itemName: "",
       description: "",
       quantity: "",
-      file: "",
+      fileId: "",
       department: "",
       foodItem: "",
       reportedTime: "0001-01-01T00:00:00+00:00",
     },
+    
+
     onSubmit: async ({ value }) => {
       console.log(value);
       try {
@@ -112,9 +115,9 @@ export const ReportForm = () => {
             children={(field) => (
               <>
                 <InputGroup>
-                <InputLeftAddon>Description</InputLeftAddon>
+                <InputLeftAddon>Department</InputLeftAddon>
                 <Select
-                  placeholder="Choose department"
+                  placeholder="Department"
                   value={field.state.value}
                   onBlur={field.handleBlur}
                   onChange={(e) => field.handleChange(e.target.value)}>
@@ -148,26 +151,21 @@ export const ReportForm = () => {
             )}
           />
           </Flex>
+
           <Flex p="2">
           <form.Field
-            name="file"
+            name="fileId"
             children={(field) => (
               <>
+                <UploadFile
+                  handleChange={field.handleChange}
+                   />
                 
-                <InputGroup>
-                <InputLeftAddon>Picture</InputLeftAddon>
-                  <Input
-                    value={field.state.value}
-                    onBlur={field.handleBlur}
-                    type="file"
-                    onChange={(e) => field.handleChange(e.target.value)}
-                  />
-                
-                  </InputGroup>
               </>
             )}
           />
           </Flex>
+          
           <Flex p="2" flex={2}>
             <Flex
               justifyContent={"left"}

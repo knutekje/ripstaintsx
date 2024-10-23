@@ -21,7 +21,7 @@ export type Report = {
     itemName: string;
     description: string;
     quantity: string;
-    file: File;
+    fileId: string;
     department: string;
     reportedTime: string;
 }
