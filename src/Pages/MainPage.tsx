@@ -9,10 +9,10 @@ import {
 function MainPage() {
     return (
        
-            <Container /* w={[300, 400, 500] }  */>
-             <Flex as="header" w="100%" h="10vh">
+            <Container  w={[300, 400, 500] }  >
+             
                 <NavBar />
-            </Flex>
+            
             <Flex   alignItems="center" flexDirection={"column"} position={"inherit" } marginTop="2">    
                 <Outlet />
             </Flex> 

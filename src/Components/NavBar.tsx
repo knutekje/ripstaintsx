@@ -1,11 +1,15 @@
-import { Box, Flex, Button,  useColorMode,  Container,    } from "@chakra-ui/react";
+import { Box, Flex, Button,  useColorMode,  Container, Text   } from "@chakra-ui/react";
 import {  FaClipboardCheck, FaClipboardQuestion,  } from "react-icons/fa6";
 import { IoMoon, IoStatsChartSharp } from "react-icons/io5";
 import { LuSun } from "react-icons/lu";
 import { Link } from "react-router-dom";
+import { SignOut } from "./SignOut";
+import { useAuth } from "./AuthProvider";
 
 export default function Navbar() {
 	const { colorMode, toggleColorMode } = useColorMode();
+	const { currentUser } = useAuth();
+	
 
 	return (
 
@@ -37,7 +41,8 @@ export default function Navbar() {
 						<Button leftIcon={<IoStatsChartSharp />}>
 							<Link to="StatsPage">Statistics</Link>
 						</Button>
-						
+						<Text>{currentUser?.email}</Text>
+						<SignOut/>
 						
 					</Flex>
 

@@ -8,7 +8,7 @@ import {ReportForm} from "./ReportForm";
 function ReportPage() {
     
     return (
-        <>
+        <>      
             <ReportForm/>
         </>
         
