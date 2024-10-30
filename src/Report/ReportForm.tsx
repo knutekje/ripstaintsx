@@ -33,7 +33,7 @@ export const ReportForm = () => {
       FileId: "",
       Department: "",
       FoodItem: "",
-      ReportedTime: "0001-01-01T00:00:00+00:00",
+      ReportedTime: "",
     },
     
 

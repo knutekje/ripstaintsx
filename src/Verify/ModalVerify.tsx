@@ -12,6 +12,7 @@ import {
   Flex,
   Select,
   Input,
+  Image,
 } from "@chakra-ui/react";
 import ItemDropDown from "./ItemDropDown";
 import { LuInspect } from "react-icons/lu";
@@ -38,7 +39,6 @@ function ModalVerify({ report }: { report: Report }) {
         id: {},
         title: "string",
         description: "string",
-        status: true,
         quantity: 0,
         reportedTime: "2024-10-11T11:52:04.725Z",
       },
@@ -111,7 +111,7 @@ function ModalVerify({ report }: { report: Report }) {
                 Value: {Number(report.quantity) * foodItem.itemPrice}
               </Text>
             </ModalBody>
-
+            <Image  w="90%" marginLeft="5" src={url + "/Upload/download/" + report.fileId} />
             <ModalFooter>
               <Flex
                 justifyContent={"left"}
