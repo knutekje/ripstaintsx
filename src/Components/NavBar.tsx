@@ -5,6 +5,7 @@ import { LuSun } from "react-icons/lu";
 import { Link } from "react-router-dom";
 import { SignOut } from "./SignOut";
 import { useAuth } from "./AuthProvider";
+import "./NavBar.css"
 
 export default function Navbar() {
 	const { colorMode, toggleColorMode } = useColorMode();
@@ -14,22 +15,21 @@ export default function Navbar() {
 	return (
 
 		
-		<Container w={[350, 400, 500]} >
 			
-			<Box borderRadius={"5"} >
+		<Box   borderRadius={"5"} >
 			
 
-				<Flex alignItems={"flex-start"} justifyContent={"space-between"} flexDirection={"column"}  >
+				<Flex className="flex-container" alignItems={"flex-start"} justifyContent={"space-between"} flexDirection={"row"}  >
 			
 					<Flex
+						flex={2}
 						justifyContent={"left"}
 						alignItems={"center"}
 						gap={1}
 						flexWrap={"wrap"}
 					>
-						<Button onClick={toggleColorMode}>
-							{colorMode === "light" ? <IoMoon /> : <LuSun size={14} />}
-						</Button>
+						<Flex  className="navbar" gap={2}>
+						
 						<Button leftIcon={<FaClipboardCheck />}>
 							<Link to="VerifyPage">Verify Reports</Link>
 						</Button>
@@ -40,9 +40,17 @@ export default function Navbar() {
 
 						<Button leftIcon={<IoStatsChartSharp />}>
 							<Link to="StatsPage">Statistics</Link>
+							</Button>
+						</Flex>
+
+					<Flex gap={2}>
+						<Button onClick={toggleColorMode}>
+							{colorMode === "light" ? <IoMoon /> : <LuSun size={14} />}
 						</Button>
+						<SignOut />
 						<Text>{currentUser?.email}</Text>
-						<SignOut/>
+
+							</Flex>
 						
 					</Flex>
 
@@ -50,6 +58,5 @@ export default function Navbar() {
 				
 				</Flex>
 			</Box>
-		</Container>
 	);
 }

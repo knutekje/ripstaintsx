@@ -18,12 +18,12 @@ export type YearMonthProp = {
 
 export type Report = {
     id: string;
-    itemName: string;
-    description: string;
-    quantity: string;
-    fileId: string;
-    department: string;
-    reportedTime: string;
+    ItemName: string;
+    Description: string;
+    Quantity: number;
+    FileId: string;
+    Department: string;
+    ReportedTime: string;
 }
       
 

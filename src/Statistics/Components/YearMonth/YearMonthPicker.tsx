@@ -1,5 +1,5 @@
 import React from 'react';
-import { Flex, Select } from '@chakra-ui/react';
+import { Flex, Radio, RadioGroup, Select } from '@chakra-ui/react';
 
 interface YearMonthPickerProps {
   year: number | string;
@@ -41,6 +41,11 @@ const YearMonthPicker: React.FC<YearMonthPickerProps> = ({ year, month, onYearCh
       </Select>
 
       {/* Month Select */}
+      <RadioGroup>
+        <Radio>By Year</Radio>
+        <Radio>By month and year</Radio>
+      </RadioGroup>
+      
       <Select 
         placeholder="Select Month" 
         value={month} 

@@ -1,4 +1,5 @@
 import { Outlet } from "react-router-dom";
+import "./MainPage.css"
 import NavBar from "../Components/NavBar";
 import {
     Container,
@@ -8,15 +9,14 @@ import {
 
 function MainPage() {
     return (
-       
-            <Container  w={[300, 400, 500] }  >
+     <>
              
                 <NavBar />
             
             <Flex   alignItems="center" flexDirection={"column"} position={"inherit" } marginTop="2">    
                 <Outlet />
             </Flex> 
-            </Container>
+            </>      
     )
 }
 

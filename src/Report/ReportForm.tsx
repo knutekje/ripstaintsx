@@ -13,31 +13,39 @@ import { Fa42Group } from "react-icons/fa6";
 import { url } from "../App";
 import './ReportForm.css';
 import { UploadFile } from "./UploadFile";
+import { useState } from "react";
 
 export const ReportForm = () => {
+  const [file, setFile] = useState<File | null>( null);
+  const formData:any = new FormData();
 
+  const handleFileChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    if (event.target.files && event.target.files[0]) {
+      setFile(event.target.files[0]);
+    }
+  };
   const form = useForm({
     defaultValues: {
       id: "",
-      itemName: "",
-      description: "",
-      quantity: "",
-      fileId: "",
-      department: "",
-      foodItem: "",
-      reportedTime: "0001-01-01T00:00:00+00:00",
+      ItemName: "",
+      Description: "",
+      Quantity: 0,
+      FileId: "",
+      Department: "",
+      FoodItem: "",
+      ReportedTime: "0001-01-01T00:00:00+00:00",
     },
     
 
     onSubmit: async ({ value }) => {
-      console.log(value);
+      console.log(file);
+      formData.append("JsonObject", JSON.stringify(value))
+      formData.append("File", file);
       try {
         await fetch(url + "/Report", {
           method: "POST",
-          headers: {
-            "Content-type": "application/json",
-          },
-          body: JSON.stringify(value),
+      
+          body: formData,
         });
       } catch (error) {
         console.log(error);
@@ -73,7 +81,7 @@ export const ReportForm = () => {
           
           <Flex p="2">
           <form.Field
-            name="itemName"
+            name="ItemName"
             children={(field) => (
               <>
                 <InputGroup>
@@ -91,7 +99,7 @@ export const ReportForm = () => {
             </Flex>
           <Flex p={2}>
           <form.Field
-            name="description"
+            name="Description"
             children={(field) => (
               <>
                 
@@ -111,7 +119,7 @@ export const ReportForm = () => {
           </Flex>
           <Flex p="2">
           <form.Field
-            name="department"
+            name="Department"
             children={(field) => (
               <>
                 <InputGroup>
@@ -133,7 +141,7 @@ export const ReportForm = () => {
           </Flex>
           <Flex p="2">
           <form.Field
-            name="quantity"
+            name="Quantity"
             children={(field) => (
               <>
                 
@@ -143,7 +151,7 @@ export const ReportForm = () => {
                     value={field.state.value}
                     onBlur={field.handleBlur}
                     type="number"
-                    onChange={(e) => field.handleChange(e.target.value)}
+                    onChange={(e) => field.handleChange(Number(e.target.value))}
                   />
                 
                   </InputGroup>
@@ -154,11 +162,11 @@ export const ReportForm = () => {
 
           <Flex p="2">
           <form.Field
-            name="fileId"
+            name="FileId"
             children={(field) => (
               <>
                 <UploadFile
-                  handleChange={field.handleChange}
+                  handleChange={handleFileChange}
                    />
                 
               </>
