@@ -1,9 +1,4 @@
-
 import {ReportForm} from "./ReportForm";
-
-
-
-
 
 function ReportPage() {
     

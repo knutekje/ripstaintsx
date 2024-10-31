@@ -6,7 +6,6 @@ import StatsPage from "./Statistics/StatsPage";
 import SignUp from "./Components/SignUp";
 import SignIn from "./Components/SignIn";
 import { useAuth } from "./Components/AuthProvider";
-import { Text } from "@chakra-ui/react";
 
 export const url = "http://localhost:5172";
 

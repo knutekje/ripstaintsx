@@ -33,7 +33,7 @@ export const ReportForm = () => {
       FileId: "",
       Department: "",
       FoodItem: "",
-      ReportedTime: "",
+      ReportedTime: "2024-10-30T18:24:37.789Z",
     },
     
 
@@ -47,6 +47,7 @@ export const ReportForm = () => {
       
           body: formData,
         });
+        alert(value.FileId)
       } catch (error) {
         console.log(error);
       }
@@ -75,6 +76,7 @@ export const ReportForm = () => {
             e.preventDefault();
             e.stopPropagation();
             form.handleSubmit();
+            form.reset();
           }}
           
         >
@@ -165,9 +167,19 @@ export const ReportForm = () => {
             name="FileId"
             children={(field) => (
               <>
-                <UploadFile
+              {/*   <UploadFile
                   handleChange={handleFileChange}
-                   />
+                   /> */}
+                <InputGroup>
+                <InputLeftAddon>Picture</InputLeftAddon>
+                  <Input
+                    value={field.state.value}
+                    onBlur={field.handleBlur}
+                    type="file"
+                    onChange={handleFileChange}
+                />
+                
+            </InputGroup>
                 
               </>
             )}

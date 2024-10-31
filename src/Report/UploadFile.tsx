@@ -8,7 +8,7 @@ interface UploadResponse {
 }
   
 interface Props {
-    handleChange: (updater: Updater<string>) => void;
+    handleChange: () => void;
   }
 
 export const UploadFile = ({ handleChange }: Props) => {

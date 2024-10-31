@@ -32,14 +32,11 @@ const {  data: toptens, isLoading } = useQuery<[ReportDTO]>({
       <Flex
           flex={1}
           alignItems={"center"}	
-         /*  border={"1px"}	
-          borderColor={"gray.600"}	
-          p={2}		
-          borderRadius={"lg"} */
-          justifyContent={"space-between"} >
+       
+          /* justifyContent={"space-between"} */ >
           {/*WEIRD Conditonal */}
 			{toptens?.length === 1 && (
-				<Stack alignItems={"center"} gap='3'>
+				<Stack alignItems={"center"} >
 					<Text fontSize={"xl"} textAlign={"center"} color={"gray.500"}>
                   
 					</Text>

@@ -23,7 +23,8 @@ import { useState } from "react";
 import { FoodItem } from "../Types/Types";
 
 function ModalVerify({ report }: { report: Report }) {
-  const [foodItem, setFoodItem] = useState<FoodItem>({_id: "",
+  const [foodItem, setFoodItem] = useState<FoodItem>({
+    _id: "",
     itemnr: 1,
     itemName: "string",
     itemPrice: 12,
@@ -62,6 +63,7 @@ function ModalVerify({ report }: { report: Report }) {
       await fetch(`${url}/report/${report.id}`,{
         method: "DELETE",
       })
+      onClose();
     },
   });
 
@@ -72,6 +74,7 @@ function ModalVerify({ report }: { report: Report }) {
           e.preventDefault();
           e.stopPropagation();
           form.handleSubmit();
+          
         }}
       >
         <Button leftIcon={<LuInspect />} onClick={onOpen}>
